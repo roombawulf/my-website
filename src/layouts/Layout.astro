@@ -1,8 +1,5 @@
 ---
-export interface Props {
-	title: string;
-}
-
+import '@fontsource/cairo'
 const { title } = Astro.props;
 ---
 
@@ -10,27 +7,78 @@ const { title } = Astro.props;
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description">
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
 	<body>
 		<slot />
 	</body>
 </html>
-<style is:global>
-	:root {
-		--accent: 124, 58, 237;
-		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background-color: #F6F6F6;
-	}
-	code {
-		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-			Bitstream Vera Sans Mono, Courier New, monospace;
-	}
+
+<style lang="scss" is:global>
+    :root {
+        --bg-color: #211e24;
+        --heading-color: #dfab7d;
+        --text-color: #fff2e5;
+        --text-highlight-color: #00ca94;
+
+        --font-2xl: 3em;
+        --font-xl: 2.25em;
+        --font-lg: 1.875em;
+
+        --font-md: 1.25em;
+        --font-sm: 1.125em;
+        --font-xs: 1.0em;
+    }
+
+    @media screen and (max-width: 640px) {
+        :root {
+            --font-2xl: 2.25em;
+            --font-xl: 1.875em;
+            --font-lg: 1.5em;
+
+            --font-md: 1.125em;
+            --font-sm: 1.0em;
+            --font-xs: 0.875em;
+        }   
+    }
+
+    html {
+        font-family: 'Cairo', system-ui, sans-serif;
+        background-color: var(--bg-color);
+    }
+
+    code {
+        font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+            Bitstream Vera Sans Mono, Courier New, monospace;
+    }
+
+    %heading {
+        margin: 0;
+        padding: 0;
+        color: var(--heading-color);
+    }
+
+    h1 {
+        @extend %heading;
+        font-size: var(--font-2xl);
+    }
+
+    h2 {
+        @extend %heading;
+        font-size: var(--font-xl);
+    }
+
+    h3 {
+        @extend %heading;
+        font-size: var(--font-lg);
+    }
+
+    p {
+        margin: 0;
+        padding: 0;
+        color: var(--text-color);
+        font-size: var(--font-sm);
+    }
+
 </style>
