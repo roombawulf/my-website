@@ -16,36 +16,47 @@ const { title } = Astro.props;
 </html>
 
 <style lang="scss" is:global>
+
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
     :root {
         --bg-color: #2D2424;
         --heading-color: #E0C097;
         --text-color: #fff2e5;
         --text-highlight-color: #00ca94;
 
-        --font-2xl: 3em;
-        --font-xl: 2.25em;
-        --font-lg: 1.875em;
+        --2xl: 3em;
+        --xl: 2.25em;
+        --lg: 1.875em;
 
-        --font-md: 1.25em;
-        --font-sm: 1.125em;
-        --font-xs: 1.0em;
+        --md: 1.25em;
+        --sm: 1.125em;
+        --xs: 1.0em;
     }
 
     @media screen and (max-width: 640px) {
         :root {
-            --font-2xl: 2.25em;
-            --font-xl: 1.875em;
-            --font-lg: 1.5em;
+            --2xl: 2.25em;
+            --xl: 1.875em;
+            --lg: 1.5em;
 
-            --font-md: 1.125em;
-            --font-sm: 1.0em;
-            --font-xs: 0.875em;
+            --md: 1.125em;
+            --sm: 1.0em;
+            --xs: 0.875em;
         }   
     }
 
     html {
         font-family: 'Cairo', system-ui, sans-serif;
         background-color: var(--bg-color);
+    }
+
+    body {
+        margin: 0;
     }
 
     code {
@@ -57,28 +68,34 @@ const { title } = Astro.props;
         margin: 0;
         padding: 0;
         color: var(--heading-color);
+        letter-spacing: 0.05em;
     }
 
     h1 {
         @extend %heading;
-        font-size: var(--font-2xl);
+        font-size: var(--2xl);
     }
 
     h2 {
         @extend %heading;
-        font-size: var(--font-xl);
+        font-size: var(--xl);
     }
 
     h3 {
         @extend %heading;
-        font-size: var(--font-lg);
+        font-size: var(--lg);
     }
 
     p {
         margin: 0;
         padding: 0;
         color: var(--text-color);
-        font-size: var(--font-sm);
+        font-size: var(--sm);
+        letter-spacing: 0.0875em;
+    }
+
+    span {
+        color: var(--text-highlight-color);
     }
 
 </style>
