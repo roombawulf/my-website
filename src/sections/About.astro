@@ -1,23 +1,63 @@
+---
+import ButtonLink from "../components/ButtonLink.astro";
+
+---
+
 <section class="about">
 
-    <h2>
-        Who... Me?
-    </h2>
+    <h1>
+        Hi, I am Haris
+    </h1>
 
-    <p>
-        My name is <span>Haris Raza</span> (<span>@roombawulf</span>), 
-        based in the <span>United Kingdom.</span>
-    </p>
 
-    <p>
-        I am a creative web developer with a focus on <span>WebGL.</span>
-        You can <span> contact me </span> for work.
-    </p>
+    <nav class="social-links">
+        <ButtonLink src='https://twitter.com/roombawulf'>@roombawulf</ButtonLink>
+        <ButtonLink src='https://github.com/roombawulf/'>Github</ButtonLink>
+    </nav>
+
+
+    <div class="information">
+        <div class="spacer" />
+        <div>
+            <p>
+                I am a <span>web developer</span> based in the <span>United Kingdom.</span> I love everything to do with
+                computer graphics and learning <span>WebGL.</span> 
+            </p>
+            <p>
+                You can <span>contact me</span> for work.
+            </p>
+        <div>
+    </div>
 
 </section>
 
+
 <style lang="scss">
     .about {
-        padding-inline: 2rem;
+        margin-top: 10rem;
+        margin-inline: auto;
+        padding-inline: 10vw;
+        max-width: 1920px;
+    }
+
+    @media screen and (max-width: 640px) {
+        .about {
+            padding-inline: 1rem;
+        }  
+    }
+
+    .information {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .social-links{
+        margin-bottom: 1rem;
+        display: flex;
+        gap: 1rem;
+    }
+
+    p {
+        max-inline-size: 60ch;
     }
 </style>

@@ -24,29 +24,28 @@ const { title } = Astro.props;
     }
 
     :root {
-        --bg-color: #2D2424;
-        --heading-color: #E0C097;
-        --text-color: #fff2e5;
-        --text-highlight-color: #00ca94;
+        --bg-color: hsl(11, 10%, 10%);
+        --primary-color: hsl(42, 80%, 90%);
+        --highlight-color: hsl(104, 50%, 70%);
 
-        --2xl: 3em;
-        --xl: 2.25em;
-        --lg: 1.875em;
+        --2xl: 4.5rem;
+        --xl: 2.25rem;
+        --lg: 1.875rem;
 
-        --md: 1.25em;
-        --sm: 1.125em;
-        --xs: 1.0em;
+        --md: 1.25rem;
+        --sm: 1.125rem;
+        --xs: 1.0rem;
     }
 
     @media screen and (max-width: 640px) {
         :root {
-            --2xl: 2.25em;
-            --xl: 1.875em;
-            --lg: 1.5em;
+            --2xl: 3.75rem;
+            --xl: 1.875rem;
+            --lg: 1.5rem;
 
-            --md: 1.125em;
-            --sm: 1.0em;
-            --xs: 0.875em;
+            --md: 1.125rem;
+            --sm: 1.0rem;
+            --xs: 0.875rem;
         }   
     }
 
@@ -67,7 +66,7 @@ const { title } = Astro.props;
     %heading {
         margin: 0;
         padding: 0;
-        color: var(--heading-color);
+        color: var(--primary-color);
         letter-spacing: 0.05em;
     }
 
@@ -87,15 +86,15 @@ const { title } = Astro.props;
     }
 
     p {
-        margin: 0;
+        margin: 0 0 2rem 0;
         padding: 0;
-        color: var(--text-color);
+        color: var(--primary-color);
         font-size: var(--sm);
         letter-spacing: 0.0875em;
     }
 
     span {
-        color: var(--text-highlight-color);
+        color: var(--highlight-color);
     }
 
 </style>

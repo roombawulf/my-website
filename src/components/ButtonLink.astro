@@ -1,0 +1,30 @@
+---
+const { class: className, src } = Astro.props
+---
+
+<a href={src} target="_blank" class:list={["button-link", className]}>
+    <slot />
+</a>
+
+<style lang="scss">
+
+    .button-link {
+        padding: 0.05rem 1rem;
+
+        text-decoration: none;
+
+        color: var(--highlight-color);
+        border-style: solid;
+        border-color: var(--highlight-color);
+        border-radius: var(--md);
+        border-width: 0.1rem;
+
+        transition: background-color 0.5s, color 0.5s;
+    }
+
+    .button-link:hover {
+        background-color: var(--highlight-color);
+        color: var(--bg-color);
+    }
+
+</style>
