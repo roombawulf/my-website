@@ -16,8 +16,12 @@ import ButtonLink from "../components/ButtonLink.astro";
     </nav>
 
 
-    <div class="information">
-        <div class="spacer" />
+    <div class="flex-container">
+
+        <div class="mini-canvas">
+
+        </div>
+
         <div>
             <p>
                 I am a <span>web developer</span> based in the <span>United Kingdom.</span> I love everything to do with
@@ -34,9 +38,9 @@ import ButtonLink from "../components/ButtonLink.astro";
 
 <style lang="scss">
     .about {
-        margin-top: 10rem;
         margin-inline: auto;
         padding-inline: 10vw;
+        padding-top: calc(20vw - 15rem);
         max-width: 1920px;
     }
 
@@ -46,15 +50,33 @@ import ButtonLink from "../components/ButtonLink.astro";
         }  
     }
 
-    .information {
-        display: flex;
-        justify-content: space-between;
-    }
-
     .social-links{
         margin-bottom: 1rem;
         display: flex;
         gap: 1rem;
+    }
+
+    .flex-container {
+        display: flex;
+        gap: 2rem;
+        justify-content: space-around;
+    }
+
+    @media screen and (max-width: 1200px) {
+        .flex-container {
+            flex-direction: column;
+        }  
+    }
+
+    .mini-canvas {
+        flex-grow: 1;
+
+        height: 25svw;
+
+        border-style: solid;
+        border-width: 0.1rem;
+        border-radius: var(--sm);
+        border-color: var(--primary-color);
     }
 
     p {
