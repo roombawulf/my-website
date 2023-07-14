@@ -1,24 +1,104 @@
-<div class="landing-container">
-    <!-- react-three component goes here -->
-</div>
+---
+import ButtonLink from "../components/ButtonLink.astro";
+import Experience from "../components/Experience.jsx";
+
+---
+
+<section class="landing">
+
+    <div class="center-container">
+
+        <h1>
+            Hi, I am Haris
+        </h1>
+
+
+        <nav class="social-links">
+            <ButtonLink src='https://github.com/roombawulf/'>Blog</ButtonLink>
+            <ButtonLink src='https://twitter.com/roombawulf'>Twitter</ButtonLink>
+            <ButtonLink src='https://github.com/roombawulf/'>Github</ButtonLink>
+        </nav>
+
+
+        <div class="flex-container">
+
+            <div class="mini-canvas">
+                <Experience client:idle />
+            </div>
+
+            <div>
+                <p>
+                    I am a <span>web developer</span> based in the <span>United Kingdom.</span> I love everything to do with
+                    computer graphics and learning <span>WebGL.</span> 
+                </p>
+                <p>
+                    You can <span>contact me</span> for work.
+                </p>
+            <div>
+        </div>
+
+    </div>
+
+</section>
+
 
 <style lang="scss">
-
-    .landing-container {
-        height: calc(100svh - 4rem);
-        margin: 2rem 0rem;
+    .landing {
+        display: grid;
+        place-items: center stretch;
         
-        border-top: solid;
-        border-bottom: solid;
-        border-width: 0.0875rem;
-        border-color: var(--primary-color);
-    }
+        height: 100svh;
+        max-width: 1920px;
 
+        margin-top: -1rem;
+        padding-inline: 3rem;
+    }
     @media screen and (max-width: 640px) {
-        .landing-container {
-            height: calc(100svh - 2rem);
-            margin: 1rem 0rem;
+        .landing {
+            display: block;
+            margin-top: 0rem;
+            padding-inline: 1rem;
         }  
     }
 
+    .center-container {
+        height: fit-content;
+    }
+
+    .social-links{
+        margin-bottom: 1rem;
+        display: flex;
+        gap: 1rem;
+    }
+
+    .flex-container {
+        display: flex;
+        gap: 2rem;
+        justify-content: space-around;
+    }
+    .mini-canvas {
+        flex-grow: 1;
+
+        height: 50svh;
+        width: 50vw;
+
+        border-style: solid;
+        border-width: 0.1rem;
+        border-radius: var(--sm);
+        border-color: var(--primary-color);
+    }
+
+    @media screen and (max-width: 1000px) {
+        .flex-container {
+            flex-direction: column;
+        }
+        .mini-canvas {
+            height: 25svh;
+            width: 100%;
+        } 
+    }
+
+    p {
+        max-inline-size: 60ch;
+    }
 </style>
