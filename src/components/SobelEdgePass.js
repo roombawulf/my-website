@@ -1,4 +1,4 @@
-import { FullScreenQuad } from "three/examples/jsm/postprocessing/Pass";
+import { FullScreenQuad } from "./Pass";
 import { Pass } from "postprocessing";
 import * as THREE from "three";
 
