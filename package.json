@@ -12,13 +12,19 @@
   "dependencies": {
     "@astrojs/react": "^2.2.1",
     "@fontsource/cairo": "^5.0.5",
+    "@react-three/drei": "^9.78.2",
     "@react-three/fiber": "^8.13.5",
+    "@react-three/postprocessing": "^2.14.13",
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
     "astro": "^2.8.0",
+    "postprocessing": "^6.32.2",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "sass": "^1.63.6",
     "three": "^0.154.0"
+  },
+  "devDependencies": {
+    "vite-plugin-glsl": "^1.1.2"
   }
 }

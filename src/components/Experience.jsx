@@ -1,28 +1,54 @@
-import { Canvas, useFrame, useThree } from "@react-three/fiber"
+import { Canvas, useFrame } from "@react-three/fiber"
+import { OrbitControls, useGLTF } from "@react-three/drei"
+import { EffectComposer, SMAA } from "@react-three/postprocessing"
 import { useRef } from "react"
 
-function Box () {
+import SobelEdge from "./SobelEdge"
 
-    const box = useRef()
 
+function Model(props) {
+    const model = useRef()
+    const { nodes } = useGLTF("/crt_monitor.glb")
     useFrame((state, delta) => {
-        box.current.rotation.y += delta * 0.15;
-        box.current.rotation.x += delta * 0.0725;
+        model.current.rotation.z += delta * 0.08
     })
 
     return (
-        <mesh ref={box} scale={3.0}>
-            <boxGeometry args={[1,1,1,2,2,2]} />
-            <meshBasicMaterial color={'#ff914d'} wireframe />
+      <group {...props} dispose={null} position={[0, 1, 0]} rotation={[0,-Math.PI/2,0]}>
+        <mesh
+          geometry={nodes.Cube_Material_0.geometry}
+          position={[-10.03, 0.134, 0]}
+          rotation={[-Math.PI / 2, 0, 0]}
+          scale={5}
+          ref={model}
+        >
+            <meshToonMaterial color={'#995511'}/>
         </mesh>
+      </group>
+    );
+}
+
+
+
+function Effect () {
+    return (
+        <EffectComposer>
+            <SobelEdge />
+            <SMAA />
+        </EffectComposer>
     )
 }
 
 function Experience () {
     return (
-        <Canvas>
-            <Box />
+        <Canvas style={{ position: 'relative', zIndex: -1 }}>
+            <color attach={'background'} args={['hsl(30, 20%, 6%)']} />
+            <Model />
+            <ambientLight intensity={0.1} />
+            <pointLight position={[10, 0, 0]} intensity={0.8} />
+            <Effect />
         </Canvas>
     )
 }
+useGLTF.preload("/crt_monitor.glb");
 export default Experience
