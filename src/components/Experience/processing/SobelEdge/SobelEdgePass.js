@@ -1,10 +1,9 @@
-import { FullScreenQuad } from "./Pass";
+import { FullScreenQuad } from "../utility/Pass";
 import { Pass } from "postprocessing";
 import * as THREE from "three";
 
-import fragment from './fragment.glsl'
-import vertex from './vertex.glsl'
-
+import fragment from "../shaders/sobel_fragment.glsl"
+import vertex from "../shaders/sobel_vertex.glsl"
 class SobelEdgePass extends Pass {
 
     constructor( scene, camera, resolution ) {

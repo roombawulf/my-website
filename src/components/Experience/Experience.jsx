@@ -3,7 +3,7 @@ import { OrbitControls, useGLTF } from "@react-three/drei"
 import { EffectComposer, SMAA } from "@react-three/postprocessing"
 import { useRef } from "react"
 
-import SobelEdge from "./SobelEdge"
+import SobelEdge from "./processing/SobelEdge/SobelEdge"
 
 
 function Model(props) {
