@@ -39,7 +39,11 @@ import Experience from "../components/Experience/Experience.jsx";
 
     </div>
 
+    <div class="footer"> 
+        <em>Note: Site still under development. You can check out my <a href="https://dapper-souffle-988521.netlify.app/" target="_blank">my old site here</a></em>
+    </div>
 </section>
+
 
 
 <style lang="scss">
@@ -96,5 +100,26 @@ import Experience from "../components/Experience/Experience.jsx";
     }
     p {
         max-inline-size: 60ch;
+    }
+
+    .footer {
+        color: var(--primary-color);
+        font-size: var(--xs);
+        position: fixed;
+        right: 1rem;
+        bottom: 1rem;
+    }
+
+    .footer > em {
+        color: var(--primary-color);
+    }
+    
+    @media screen and (max-width: 1000px) {
+        .footer {
+            position: relative;
+            right: 0;
+            bottom: 0;
+
+        }
     }
 </style>
