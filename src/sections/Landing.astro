@@ -1,125 +1,27 @@
 ---
-import ButtonLink from "../components/ButtonLink.astro";
-import Experience from "../components/Experience/Experience.jsx";
-
+import CardLink from "../components/CardLink.astro";
 ---
 
 <section class="landing">
-
-    <div class="center-container">
-
-        <h1>
-            Hi, I'm Haris (Dev Branch)
-        </h1>
-
-
-        <nav class="social-links">
-            <ButtonLink src='https://blog.hraza.dev'>Blog</ButtonLink>
-            <ButtonLink src='https://twitter.com/roombawulf'>Twitter</ButtonLink>
-            <ButtonLink src='https://github.com/roombawulf/'>Github</ButtonLink>
-        </nav>
-
-
-        <div class="flex-container">
-            <div class="mini-canvas">
-                <Experience client:load />
-            </div>
-            <div>
-                <p>
-                    I am a <span>web developer</span> based in the <span>United Kingdom.</span> I love everything to do with
-                    computer graphics and learning <span>WebGL.</span> 
-                </p>
-                <p>
-                    You can <span>contact me</span> at <a href="mailto:hello@hraza.dev">hello@hraza.dev</a>
-                    or <a href="https://twitter.com/roombawulf" target="_blank"> DM me on Twitter.</a>
-                </p>
-                
-            <div>
-        </div>
-
-    </div>
-
-    <div class="footer"> 
-        <em>Note: Site still under development. You can check out my <a href="https://dapper-souffle-988521.netlify.app/" target="_blank">my old site here</a></em>
-    </div>
+    <nav class="navbar">
+        <CardLink title="WORKS" subtitle="a collection of my works."/>
+        <CardLink title="BLOG" subtitle="anything software or graphics."/>
+        <CardLink title="CONTACT" subtitle="send me a message."/>
+    </nav>
 </section>
 
 
 
 <style lang="scss">
-    .landing {
-        display: grid;
-        place-items: center;
-        
+
+    .landing { 
         height: 100svh;
-        max-width: 1920px;
-
-        margin-top: -1rem;
-        margin-inline: auto;
-        padding-inline: 3rem;
     }
-    @media screen and (max-width: 640px) {
-        .landing {
-            display: block;
-            margin-top: 0rem;
-            padding-inline: 1rem;
-        }  
-    }
-    .center-container {
-        height: fit-content;
-    }
-    .social-links{
-        margin-bottom: 1rem;
+    .navbar {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
         display: flex;
-        gap: 1rem;
-    }
-    .mini-canvas {
-    flex-grow: 1;
-
-    height: 50svh;
-    width: 35vw;
-
-    border-style: solid;
-    border-width: 0.1rem;
-    border-radius: var(--sm);
-    border-color: var(--primary-color);
-    }
-    .flex-container {
-        display: flex;
-        gap: 2rem;
-        justify-content: space-around;
-    }
-    @media screen and (max-width: 1000px) {
-        .flex-container {
-            flex-direction: column;
-        }
-        .mini-canvas {
-            height: 30svh;
-            width: 100%;
-        }
-    }
-    p {
-        max-inline-size: 60ch;
-    }
-
-    .footer {
-        color: var(--primary-color);
-        font-size: var(--xs);
-        position: fixed;
-        right: 1rem;
-        bottom: 1rem;
-    }
-
-    .footer > em {
-        color: var(--primary-color);
-    }
-    
-    @media screen and (max-width: 1000px) {
-        .footer {
-            position: relative;
-            right: 0;
-            bottom: 0;
-
-        }
+        gap: 0.25rem;
     }
 </style>
