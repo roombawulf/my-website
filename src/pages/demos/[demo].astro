@@ -1,0 +1,27 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+
+export async function getStaticPaths() {
+    const demos = await getCollection('demos');
+    return demos.map((demo) => ({
+        params: { demo: demo.slug },
+        props: demo,
+    }))
+}
+
+const demo = Astro.props;
+---
+
+<Layout title="Haris Raza (dev)">
+    <main>
+        <div>
+            { demo.body }
+        <div>
+        <div> { demo.data.title} </div>
+        <Image src={demo.data.cover} width=200 height=200 alt='2' />
+	</main>
+</Layout>
+
+

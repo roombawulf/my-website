@@ -1,0 +1,71 @@
+---
+import { getCollection } from 'astro:content';
+const demos = await getCollection('demos')
+---
+
+<section class="projects">
+    <h1 class="section-title"> work. </h1>
+    
+    <span class="section-description"> 
+        demos
+    </span>
+    <div class="works-container">
+        { demos.map(demo => (
+            <a class="layout-link" 
+            href={demo.data.link} target="_blank"
+            >
+            {demo.data.title}
+            </a>
+        ))}
+    </div>
+</section>
+
+
+<style lang="scss">
+    .projects { 
+        height: 100%;
+        padding: 5vw 7.5vw;
+        background: var(--color-primary);
+    }
+
+    .section-title {
+        height: min-content;
+        width: fit-content;
+        margin-bottom: 2rem;
+
+        color: var(--color-background);
+    }
+
+    .section-description {
+        display: block;
+        margin-bottom: 1rem;
+        padding: 0.1rem 2rem 0.1rem 0.25rem;
+        width: fit-content;
+        background: var(--color-background);
+    }
+
+    .works-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    .layout-link {
+        all: unset;
+        cursor: pointer;
+
+        width: fit-content;
+
+        color: var(--color-background);
+        text-transform: lowercase;
+        font-size: var(--md);
+
+        transition: all 0.1s ease-in-out;
+
+        &:hover { 
+            font-size: var(--lg);
+        }
+    }
+
+
+</style>
